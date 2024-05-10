@@ -17,9 +17,9 @@ int armstrongValue(int n, int p){
 }
 int isArmstrong(int n){
     if(n == armstrongValue(n, length(n))){
-        return 1;
+        return true;
     }
-    return 0;
+    return false;
 }
 
 int reverse(int n){
@@ -28,12 +28,12 @@ int reverse(int n){
     return (n%10)*power(10, len-1) + reverse(n/10);
 }
 int isPalindromeHelp(int a, int b){
-    if(a>-10 && a<10 && b>-10 && b<10) return 1;
-    int check = 0;
-    if(a%10 == b%10) check = 1;
+    if(a>-10 && a<10 && b>-10 && b<10) return true;
+    int check = false;
+    if(a%10 == b%10) check = true;
     return check * isPalindromeHelp(a/10, b/10);
 }
 int isPalindrome(int n){
-    if(n>-10 && n<10) return 1;
+    if(n>-10 && n<10) return true;
     return isPalindromeHelp(n, reverse(n));
 }
