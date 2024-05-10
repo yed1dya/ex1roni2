@@ -1,7 +1,8 @@
+// 207404997
 # include "NumClass.h"
 
 int sqroot(int n){
-    if(n<=0) return 0;
+    if(n <= 0) return 0;
     int t = 1;
     while((t*t < n) && ((t+1)*(t+1) <= n)){
         t++;
@@ -10,9 +11,9 @@ int sqroot(int n){
 }
 
 int isPrime(int n){
-    if(n<=3) return true;
-    // square root is an upper bound for
-    // the numbers to check to varify prime:
+    if(n <= 3) return true;
+    /* square root is an upper bound for
+    the numbers to check to varify prime: */
     int sqrt_n = sqroot(n);
     int i = 2;
     for(i=2; i<=sqrt_n; i++){
@@ -22,8 +23,8 @@ int isPrime(int n){
 }
 
 int isStrong(int n){
-    // keep array of factorials of digits - 
-    // to avoid repeating calculations:
+    /* keep array of factorials of digits - 
+    to avoid repeating calculations: */
     int f[10];
     f[0] = 1;
     int i = 1;
