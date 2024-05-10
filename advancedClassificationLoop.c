@@ -1,47 +1,79 @@
-# include "NumClass.h"
+#include "NumClass.h"
+int lenght(int a){
+    int l=0;
+    int temp =a;
+    while (temp>0)
+    {
+        temp=temp/10;
+        l+=1;
+    }
+    return l;
+ }
 
-int length(int n){
-    if(n == 0) return 1;
-    int ans = 0;
-    while(n != 0){
-        ans++;
-        n /= 10;
+int power(int a, int b)
+{
+    if (b == 0)
+    {
+        return 1;
+    }
+    int ans = a;
+    int i = 1;
+    for (i; i < b; i++)
+    {
+        ans *= a;
     }
     return ans;
 }
 
-int power(int n, int p){
-    if(p < 1) return 1;
-    int ans = n;
-    int i=1;
-    for(i=1; i<p; i++){
-        ans *= n;
+int isPalindrome(int a){
+    int l = lenght(a);
+    if(l==1){
+        return true;
     }
-    return n;
+    int temp = a;
+    int index = 0;
+    int nums1[l];
+    while (a > 0)
+    {
+        temp = a - ((a / 10) * 10);
+        a = a / 10;
+        nums1[index] = temp;
+        index++;
+    }
+    int p1 = 0;
+    int p2 = l - 1;
+    while(p1<p2){
+    if(nums1[p1]!=nums1[p2]){
+            return false;
+        }
+     p2--;
+     p1++;
+    }
+    return true;
 }
 
-int isArmstrong(int n){
-    int p = length(n), sum = 0, t = n, digit;
-    while(t != 0){
-        digit = t%10;
-        sum += power(digit, p);
+int isArmstrong(int a){
+    int temp2 = a;
+    int l = lenght(a);
+    int temp = a;
+    int index = 0;
+    int nums1[l];
+    while (a > 0)
+    {
+        temp = a - ((a / 10) * 10);
+        a = a / 10;
+        nums1[index] = temp;
+        index++;
     }
-    if(sum == n) return 1;
-    return 0;
-}
-
-int isPalindrome(int n){
-    int len = length(n), digit;
-    int number[len], reverse[len];
-    int i=0;
-    for(i=0; i<len; i++){
-        digit = n%10;
-        number[i] = digit;
-        reverse[len-i-1] = digit;
+    int ans=0;
+    int i =0;
+    for (i; i < l; i++)
+    {
+        ans += power(nums1[i], l);
     }
-    int j=0;
-    for(j=0; j<len; j++){
-        if(number[j] != reverse[j]) return 0;
+    if (ans == temp2)
+    {
+        return true;
     }
-    return 1;
+    return false;
 }
