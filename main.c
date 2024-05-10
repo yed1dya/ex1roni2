@@ -13,7 +13,7 @@ int main(){
     int i=a;
     printf("The Armstrong numbers are:");
     for(i;i<=b;i++){
-           if(isAmstrong(i)==1){
+           if(isArmstrong(i)==1){
             printf(" %d",i);
         }
     }
