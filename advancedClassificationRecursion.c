@@ -33,5 +33,5 @@ int isPalindrome(int n){
         MSD /= 10;
     }
     if(MSD != LSD) return 0;
-    return 1 * isPalindrome(sum/10);
+    return isPalindrome(sum/10);
 }
