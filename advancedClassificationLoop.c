@@ -52,7 +52,7 @@ int isPalindrome(int a){
     return true;
 }
 
-int isAmstrong(int a){
+int isArmstrong(int a){
     int temp2 = a;
     int l = lenght(a);
     int temp = a;
