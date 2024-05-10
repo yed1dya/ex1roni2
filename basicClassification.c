@@ -10,15 +10,15 @@ int sqroot(int n){
 }
 
 int isPrime(int n){
-    if(n<=3) return 1;
+    if(n<=3) return true;
     // square root is an upper bound for
     // the numbers to check to varify prime:
     int sqrt_n = sqroot(n);
     int i = 2;
     for(i=2; i<=sqrt_n; i++){
-        if(n%i == 0) return 0;
+        if(n%i == 0) return false;
     }
-    return 1;
+    return true;
 }
 
 int isStrong(int n){
@@ -38,6 +38,6 @@ int isStrong(int n){
         sum += f[digit];
         t /= 10;
     }
-    if(sum == n) return 1;
-    return 0;
+    if(sum == n) return true;
+    return false;
 }
