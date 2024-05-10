@@ -33,7 +33,7 @@ int isArmstrong(int n){
 
 int isPalindrome(int n){
     int len = length(n), digit;
-    printf(len);
+    printf("%d",len);
     int number[len], reverse[len];
     int i=0;
     for(i=0; i<len; i++){
