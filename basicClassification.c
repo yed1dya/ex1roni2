@@ -1,44 +1,43 @@
-#include "NumClass.h"
-int isStrong(int a){
-    int temp2= a;
-    int factorial [10];
-    factorial[0]=1;
-    int i ;
-    for (i = 1; i < 10; i++)
-    {
-        factorial[i]=factorial[i-1]*i;
+# include "NumClass.h"
+
+int sqroot(int n){
+    if(n<=0) return 0;
+    int t = 1;
+    while((t*t < n) && ((t+1)*(t+1) <= n)){
+        t++;
     }
-    int temp =a;
-    int sum =0;
-        while (a>0)
-    {
-        temp=a-((a/10)*10);
-        sum+= factorial[temp];
-        a=a/10;
-        temp =0;
-    }
-    if(temp2== sum){
-        return true;
-    }
-    else{
-        return false;
-    }
+    return t;
 }
 
-int sqr(int a){
-    int b =1;
-    while(b*b<a && (b+1)*(b+1)<=a){
-        b++;
+int isPrime(int n){
+    if(n<=3) return 1;
+    // square root is an upper bound for
+    // the numbers to check to varify prime:
+    int sqrt_n = sqroot(n);
+    int i = 2;
+    for(i=2; i<=sqrt_n; i++){
+        if(n%i == 0) return 0;
     }
-    return b;
+    return 1;
 }
-int isPrime(int a){
-    int i=2;
-    int s =sqr(a);
-    for(i;i<=s;i++){
-        if(a%i==0){
-            return false;
-        }
+
+int isStrong(int n){
+    // keep array of factorials of digits - 
+    // to avoid repeating calculations:
+    int f[10];
+    f[0] = 1;
+    int i = 1;
+    for(i=1; i<10; i++){
+        f[i] = f[i-1]*i;
     }
-    return true;
+    int sum = 0;
+    int t = n;
+    int digit;
+    while(t > 0){
+        digit = t%10;
+        sum += f[digit];
+        t /= 10;
+    }
+    if(sum == n) return 1;
+    return 0;
 }
