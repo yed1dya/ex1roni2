@@ -1,3 +1,4 @@
+// 207404997
 #include <stdio.h>
 #include "NumClass.h"
 int main(){
@@ -27,7 +28,6 @@ int main(){
     }
     printf("\n");
     printf("The Prime numbers are:");
-    if(a == 0){ a = 1; }
     i = a;
     for(i=a; i <= b; i++){
            if(isPrime(i) == 1){
