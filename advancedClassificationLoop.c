@@ -1,3 +1,4 @@
+// 207404997
 # include "NumClass.h"
 
 int length(int n){
@@ -13,7 +14,7 @@ int length(int n){
 int power(int n, int p){
     if(p < 1) return 1;
     int ans = n;
-    int i=1;
+    int i = 1;
     for(i=1; i<p; i++){
         ans *= n;
     }
@@ -34,14 +35,14 @@ int isArmstrong(int n){
 int isPalindrome(int n){
     int len = length(n), digit;
     int number[len], reverse[len];
-    int i=0;
+    int i = 0;
     for(i=0; i<len; i++){
         digit = n%10;
         number[i] = digit;
         reverse[len-i-1] = digit;
         n /= 10;
     }
-    int j=0;
+    int j = 0;
     for(j=0; j<len; j++){
         if(number[j] != reverse[j]) return false;
     }
