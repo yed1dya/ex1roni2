@@ -51,7 +51,7 @@ int isPalindrome(int a){
     isPalindromeHelper(nums,0,l-1);
 }
 
-int isAmstrongHelper(int a,int l,int s,int check){
+int isArmstrongHelper(int a,int l,int s,int check){
     if(a==0 && check ==s){
         return true;
     }
@@ -59,11 +59,11 @@ int isAmstrongHelper(int a,int l,int s,int check){
         return false;
     }
     s+= power(a-((a/10)*10),l);
-    return(isAmstrongHelper(a/10,l,s,check));
+    return(isArmstrongHelper(a/10,l,s,check));
 }
 
-int isAmstrong(int a){
+int isArmstrong(int a){
     int l = lenght(a);
     int s =0;
-    return isAmstrongHelper(a,l,s,a);
+    return isArmstrongHelper(a,l,s,a);
 }
