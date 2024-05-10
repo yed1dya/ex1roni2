@@ -1,69 +1,37 @@
-#include "NumClass.h"
-int lenght(int a){
-    int l=0;
-    int temp =a;
-    while (temp>0)
-    {
-        temp=temp/10;
-        l+=1;
-    }
-    return l;
- }
+# include "NumClass.h"
 
-int power(int a, int b)
-{
-    if (b == 0)
-    {
+int length(int n){
+    if(n>-10 && n<10) return 1;
+    return 1 + length(n/10);
+}
+
+int power(int n, int p){
+    if(p < 1) return 1;
+    if(p == 1) return n;
+    return n*power(n, p-1);
+}
+
+int armstrongValue(int n, int p){
+    if(n == 0) return 0;
+    return armstrongValue(n/10, p) + power(n%10, p);
+}
+int isArmstrong(int n){
+    if(n == armstrongValue(n, length(n))){
         return 1;
     }
-    int ans = a;
-    int i = 1;
-    for (i; i < b; i++)
-    {
-        ans *= a;
-    }
-    return ans;
-}
-int isPalindromeHelper(int a [], int left,int right){
-    if(a[left]!=a[right]){
-    return false;
-    }
-    if(left==right || left>right){
-        return true;
-    }
-    return isPalindromeHelper(a,left+1,right-1);
-}
-int isPalindrome(int a){
-    if(a==0){
-        return true;
-    }
-    int l = lenght(a);
-        int temp =a;
-        int nums [l];
-        int index=0;
-        while (a>0)
-    {
-        temp=a-((a/10)*10);
-        a=a/10;
-        nums[index]=temp;
-        index++;
-    }
-    isPalindromeHelper(nums,0,l-1);
+    return 0;
 }
 
-int isArmstrongHelper(int a,int l,int s,int check){
-    if(a==0 && check ==s){
-        return true;
+int isPalindrome(int n){
+    if(n>-10 && n<10) return 1;
+    int MSD = n;
+    int LSD = n%10;
+    int sum = 0, c = 1;
+    while(MSD > 9){
+        sum += (MSD%10)*c;
+        c*=10;
+        MSD /= 10;
     }
-    if(a==0){
-        return false;
-    }
-    s+= power(a-((a/10)*10),l);
-    return(isArmstrongHelper(a/10,l,s,check));
-}
-
-int isArmstrong(int a){
-    int l = lenght(a);
-    int s =0;
-    return isArmstrongHelper(a,l,s,a);
+    if(MSD != LSD) return 0;
+    return 1 * isPalindrome(sum/10);
 }
