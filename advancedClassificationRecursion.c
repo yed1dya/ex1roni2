@@ -22,7 +22,6 @@ int isArmstrong(int n){
     return 0;
 }
 
-
 int reverse(int n){
     if(n>-10 && n<10) return n;
     int len = length(n);
