@@ -33,5 +33,10 @@ int isPalindrome(int n){
         MSD /= 10;
     }
     if(MSD != LSD) return 0;
-    return isPalindrome(sum/10);
+    int checkLength;
+    if((length(sum/10) == length(n)-2) || (sum/10 == 0)){
+        checkLength = 1;
+    }
+    else{ checkLength = 0; }
+    return isPalindrome(sum/10) * checkLength;
 }
