@@ -25,6 +25,7 @@ int isArmstrong(int n){
     while(t != 0){
         digit = t%10;
         sum += power(digit, p);
+        t /= 10;
     }
     if(sum == n) return 1;
     return 0;
