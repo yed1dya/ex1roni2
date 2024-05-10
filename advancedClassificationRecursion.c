@@ -22,21 +22,19 @@ int isArmstrong(int n){
     return 0;
 }
 
+
+int reverse(int n){
+    if(n>-10 && n<10) return n;
+    int len = length(n);
+    return (n%10)*power(10, len-1) + reverse(n/10);
+}
+int isPalindromeHelp(int a, int b){
+    if(a>-10 && a<10 && b>-10 && b<10) return 1;
+    int check = 0;
+    if(a%10 == b%10) check = 1;
+    return check * isPalindromeHelp(a/10, b/10);
+}
 int isPalindrome(int n){
     if(n>-10 && n<10) return 1;
-    int MSD = n;
-    int LSD = n%10;
-    int sum = 0, c = 1;
-    while(MSD > 9){
-        sum += (MSD%10)*c;
-        c*=10;
-        MSD /= 10;
-    }
-    if(MSD != LSD) return 0;
-    int checkLength;
-    if((length(sum/10) == length(n)-2) || (sum/10 == 0)){
-        checkLength = 1;
-    }
-    else{ checkLength = 0; }
-    return isPalindrome(sum/10) * checkLength;
+    return isPalindromeHelp(n, reverse(n));
 }
