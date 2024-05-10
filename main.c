@@ -6,41 +6,41 @@ int main(){
     scanf("%d",&a);
     scanf("%d",&b);
     if(a>b){
-        int temp=a;
-        a=b;
-        b=temp;
+        int t = a;
+        a = b;
+        b = t;
     }
-    int i=a;
+    int i = a;
     printf("The Armstrong numbers are:");
-    for(i;i<=b;i++){
+    for(i=a; i<=b; i++){
            if(isArmstrong(i)==1){
             printf(" %d",i);
-        }
+           }
     }
     printf("\n");
     printf("The Palindromes are:");
-    i=a;
-    for(i;i<=b;i++){
+    i = a;
+    for(i=a; i<=b; i++){
            if(isPalindrome(i)==1){
             printf(" %d",i);
         }
     }
     printf("\n");
     printf("The Prime numbers are:");
-    if(a==0){ a=1 ;}
-    i=a;
-    for(i;i<=b;i++){
+    if(a == 0){ a = 1; }
+    i = a;
+    for(i=a; i<=b; i++){
            if(isPrime(i)==1){
             printf(" %d",i);
         }
     }
-    if(a==0){ a=1 ;}
-    i=a;
     printf("\n");
     printf("The Strong numbers are:");
-    for(i;i<=b;i++){
-        int m =isStrong(i);
-        if(m==1){
+    if(a == 0){ a=1; }
+    i = a;
+    for(i=a; i<=b; i++){
+        int m = isStrong(i);
+        if(m == 1){
             printf(" %d",i);
         }
     }
