@@ -27,8 +27,8 @@ int isArmstrong(int n){
         sum += power(digit, p);
         t /= 10;
     }
-    if(sum == n) return 1;
-    return 0;
+    if(sum == n) return true;
+    return false;
 }
 
 int isPalindrome(int n){
@@ -43,7 +43,7 @@ int isPalindrome(int n){
     }
     int j=0;
     for(j=0; j<len; j++){
-        if(number[j] != reverse[j]) return 0;
+        if(number[j] != reverse[j]) return false;
     }
-    return 1;
+    return true;
 }
