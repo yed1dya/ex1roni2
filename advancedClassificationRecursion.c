@@ -17,6 +17,7 @@ int armstrongValue(int n, int p){
     return armstrongValue(n/10, p) + power(n%10, p);
 }
 int isArmstrong(int n){
+    if(n < 0) return -1;
     if(n == armstrongValue(n, length(n))){
         return true;
     }
@@ -35,6 +36,7 @@ int isPalindromeHelp(int a, int b){
     return check * isPalindromeHelp(a/10, b/10);
 }
 int isPalindrome(int n){
+    if(n < 0) return -1;
     if(n>-10 && n<10) return true;
     return isPalindromeHelp(n, reverse(n));
 }
