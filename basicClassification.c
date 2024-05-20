@@ -11,6 +11,7 @@ int sqroot(int n){
 }
 
 int isPrime(int n){
+    if(n < 0) return -1;
     if(n <= 3) return true;
     /* square root is an upper bound for
     the numbers to check to varify prime: */
@@ -23,6 +24,7 @@ int isPrime(int n){
 }
 
 int isStrong(int n){
+    if(n < 0) return -1;
     /* keep array of factorials of digits - 
     to avoid repeating calculations: */
     int f[10];
