@@ -22,6 +22,7 @@ int power(int n, int p){
 }
 
 int isArmstrong(int n){
+    if(n < 0) return -1;
     int p = length(n), sum = 0, t = n, digit;
     while(t != 0){
         digit = t%10;
@@ -33,6 +34,7 @@ int isArmstrong(int n){
 }
 
 int isPalindrome(int n){
+    if(n < 0) return -1;
     int len = length(n), digit;
     int number[len], reverse[len];
     int i = 0;
