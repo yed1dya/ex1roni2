@@ -6,6 +6,10 @@ int main(){
     int b;
     scanf("%d",&a);
     scanf("%d",&b);
+    if(a < 0 || b < 0){
+        printf("Error: do not enter negative numbers");
+        return 0;
+    }
     if(a > b){
         int t = a;
         a = b;
@@ -43,4 +47,5 @@ int main(){
         }
     }
     printf("\n");
+    return 1;
 }
